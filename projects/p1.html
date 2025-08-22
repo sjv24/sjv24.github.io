@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Blog</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo"><span>Saarthak Jadhav</span></a>
+
+        <ul class="nav-links">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <a href="https://github.com/sjv24" target="_blank">
+            <button class="visit-btn">Visit Github</button>
+        </a>
+    </header>
+
+    <section class="blog">
+        <div class="blog-container">
+            <h1>Diabetes Prediction Model</h1>
+            <p>
+                I built a beginner-friendly machine learning model that can predict whether a patient has diabetes or not.
+            </p>
+            <h2>Why This Project?</h2>
+            <p>
+                Recently, I came across numerous videos and articles highlighting how machine learning and AI are changing our daily lives, and I found it super exciting that you can actually build and train your own models to tackle different tasks! This sparked my interest in creating a predictive model. Diabetes is a major health concern affecting millions worldwide, and early detection is key to better management. With this model, I wanted to create something that could help healthcare professionals in real life. 
+            </p>
+
+            <h2>How It Works?</h2>
+            <p>
+                Since this was my first-ever machine learning model, I wanted to keep things simple and easy to understand. I decided to use Python and build a linear regression-based model. Now, you might be wondering, what exactly is linear regression? It’s a technique used in data analysis that helps predict unknown values by using related, known data. In my case, I used biological data like BMI, glucose levels, age, and other health factors as the known values to predict the risk of diabetes. This allowed me to create a model that’s both practical and easy to grasp!
+            </p>
+            
+            <h2>Takeaways</h2>
+            <p>
+                When my model was actually able to predict whether a patient had diabetes or not, I was genuinely surprised. I was hesitant to build my own model but the YouTube tutorials made it pretty straightforward and easy to understand. Of course, it's not as simple as it sounds, I understand the underlying math is complicated but I'm excited to learn. Building this model taught me a lot—especially about the train-test-split. This step involves splitting your dataset into two parts: one for training the model and one for testing it, ensuring that the model doesn't get access to the unknown variable while being tested. This project also taught me about cleaning the data. It was a cool hands-on experience!
+            </p>
+
+            <h2>Future Scope</h2>
+            <p>
+                In the future, whenever I'm free, I plan on building an interative UI for this model, so people can easily try it out for themselves! <br>
+                <b>EDIT:</b> The interactive UI is now complete! You can now interact with the model and get real-time predictions. This was done using Streamlit
+            </p>
+            <p>
+                Moving forward, I plan to add a feature to help users who are unsure of their diabetes pedigree function, possibly by allowing them to input family medical history or providing an estimated value based on common health factors.
+            </p>
+            <p>
+                Feel free to explore the project by viewing the GitHub repository or trying the demo by using the buttons below!
+            </p>
+
+            <div class="btn-group">
+                <a href="https://github.com/sjv24/diabetes-prediction" target="_blank">
+                    <div class="btn">View Repository</div>
+                </a>
+
+                <a href="https://diabetes-prediction-sjv.streamlit.app" target="_blank">
+                    <div class="btn">View Demo</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <ul>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather ETL Pipeline Blog</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo"><span>Saarthak Jadhav</span></a>
+
+        <ul class="nav-links">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <a href="https://github.com/sjv24" target="_blank">
+            <button class="visit-btn">Visit Github</button>
+        </a>
+    </header>
+
+    <section class="blog">
+        <div class="blog-container">
+            <h1>Weather ETL Pipeline</h1>
+
+            <p>
+                I recently completed my <b>DeepLearning.AI Data Engineering Certificate</b>, which included hands-on experience with <b>AWS</b>. As part of this, I built a Weather ETL pipeline using Docker, giving me practical exposure to orchestrating, processing, and visualizing data in a cloud environment.
+            </p>
+
+            <h2>Why This Project?</h2>
+            <p>
+                Collecting and analyzing weather data is crucial for applications ranging from agriculture to city planning. I wanted to create an end-to-end ETL system that extracts data from APIs, transforms it for analysis, and stores it efficiently—while also learning to containerize and orchestrate workflows using modern tools.
+            </p>
+
+            <h2>How It Works?</h2>
+            <p>
+                The pipeline extracts real-time weather data from public APIs, cleans and transforms it using Python, and stores it in a <b>PostgreSQL</b> database. The workflow is orchestrated with <b>Apache Airflow</b> to schedule and automate tasks. Data is then visualized in <b>Metabase</b>, providing insights and dashboards for easy analysis. Docker ensures that the entire pipeline is portable and can run consistently across environments.
+            </p>
+
+            <h2>Takeaways</h2>
+            <p>
+                Building this pipeline taught me a lot about data engineering best practices. I gained hands-on experience with ETL processes, containerization, orchestration with Airflow, database management with PostgreSQL, and data visualization with Metabase. Additionally, working within AWS services gave me practical cloud experience, which is essential for modern data engineering workflows.
+            </p>
+
+            <h2>Future Scope</h2>
+            <p>
+                In the future, I plan to extend this pipeline to include more APIs, implement real-time streaming data processing, and integrate advanced analytics to detect weather patterns and anomalies. This project lays a solid foundation for building more complex, scalable, and cloud-ready data pipelines.
+            </p>
+
+            <div class="btn-group">
+                <a href="https://github.com/sjv24/etl-weather" target="_blank">
+                    <div class="btn">View Repository</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <ul>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

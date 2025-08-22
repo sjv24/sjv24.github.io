@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Simvestify Blog</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo"><span>Saarthak Jadhav</span></a>
+
+        <ul class="nav-links">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <a href="https://github.com/sjv24" target="_blank">
+            <button class="visit-btn">Visit Github</button>
+        </a>
+    </header>
+
+    <section class="blog">
+        <div class="blog-container">
+            <h1>Simvestify</h1>
+    <p>
+        Simvestify is a simple yet interactive stock simulation app that lets users buy, sell, and track stocks using real-time data—perfect for beginners who want to explore the world of investing without any financial risk.
+    </p>
+
+    <h2>Why This Project?</h2>
+    <p>
+        I’ve always been curious about the stock market—how prices move, how people make investment decisions, and how risky it can be without proper knowledge. So, I decided to create an app where users could practice investing in a completely safe environment. Simvestify lets users simulate buying and selling real-world stocks using virtual money, which makes it a great tool to learn and have fun without any actual loss. Plus, I wanted to build something that combines both programming and finance!
+    </p>
+
+    <h2>How It Works?</h2>
+    <p>
+        The app is built using Python and Streamlit, and it uses the <code>yFinance</code> library to fetch real-time stock market data. When users sign up, they get a starting balance, and they can use this virtual money to buy shares of their favorite companies. The app stores user info in a local SQLite database, so every time you log in, your portfolio is exactly where you left it. It also includes features like plotting recent stock trends and tracking owned shares, making it engaging and educational.
+    </p>
+
+    <h2>Takeaways</h2>
+    <p>
+        This was my first time building an app that involved user authentication, wokring with databases, and real-time API integration. It really helped me understand concepts like databases, session states, and object-oriented programming in a real-world context. I also explored design patterns like the Observer pattern to notify users of events, which added a nice touch to the user experience!
+    </p>
+
+    <h2>Future Scope</h2>
+    <p>
+        In the future, I plan to expand Simvestify with advanced features like stock watchlists, performance charts that includes analysis of the user portfolio, and maybe even predictive models for stock price trends or for suggested stocks to buy. I'm also considering better security for the databse by hashing passwords and several other features.
+    </p>
+    <p>
+        Feel free to explore the project by viewing the GitHub repository or trying the demo by using the buttons below! <br>
+        <b>Since this is a basic, dummy app, please refrain from using real information such as email addresses or passwords.</b>
+    </p>
+
+
+            <div class="btn-group">
+                <a href="https://github.com/sjv24/simvestify" target="_blank">
+                    <div class="btn">View Repository</div>
+                </a>
+                <a href="https://simvestify-sjv.streamlit.app/" target="_blank">
+                    <div class="btn">View Demo</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <ul>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

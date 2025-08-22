@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo"><span>Saarthak Jadhav</span></a>
+
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <a href="https://github.com/sjv24" target="_blank">
+            <button class="visit-btn">Visit Github</button>
+        </a>
+    </header>
+
+    <main class="projects-collage">
+    <h2 class="section-title" style="font-size: 35px; text-align: center; margin-bottom: 50px;">My Project Stories</h2>
+        <div class="projects-grid"></div>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async () => {
+  const container = document.querySelector(".projects-grid");
+
+  try {
+    const res = await fetch("projects.json");
+    var projects = await res.json();
+
+    projects = projects.reverse();
+
+    projects.forEach(p => {
+      const card = document.createElement("div");
+      card.classList.add("project-card");
+      card.innerHTML = `
+        <img src="${p.image}" alt="${p.title}">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <a href="${p.link}" class="btn" target="_blank">View More</a>
+      `;
+      container.appendChild(card);
+    });
+  } catch (err) {
+    console.error("Error loading projects:", err);
+    container.innerHTML = "<p>Failed to load projects.</p>";
+  }
+});
+</script>
+</html>
