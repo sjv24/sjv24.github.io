@@ -28,6 +28,11 @@
     "image": "images/weather-etl.png",
     "desc": "A full-stack ETL pipeline that collects, transforms, and stores real-time weather data, then visualizes insights through an interactive dashboard for end users.",
     "link": "projects/weather-etl.html"
+  },
+  {
+    "title": "Tesseract",
+    "image": "images/tesseract.png",
+    "desc": "A multi-agent RAG chatbot built around Interstellar that answers questions using the screenplay, a companion physics textbook, and over 41,000 analyzed YouTube comments, routing each question to the source that actually has the answer.",
+    "link": "projects/tesseract.html"
   }
-
 ]

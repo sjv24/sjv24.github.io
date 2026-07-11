@@ -17,10 +17,7 @@ async function loadProjects() {
         const projects = await (await fetch('projects.json')).json();
 
         const toShow = homeGrid
-            ? [
-                projects.find(p => p.title.toLowerCase().includes('diabetes')),
-                projects[projects.length - 1],
-              ].filter((p, i, arr) => p && arr.indexOf(p) === i)
+            ? [...projects].slice(-2).reverse()
             : [...projects].reverse();
 
         container.innerHTML = toShow.map(p => `
@@ -29,7 +26,7 @@ async function loadProjects() {
                 <h3>${p.title}</h3>
                 <p>${p.desc}</p>
                 <div class="btn-group">
-                    <a href="${p.link}" target="_blank"><div class="btn">View More</div></a>
+                    <a href="${p.link}"><div class="btn">View More</div></a>
                 </div>
             </div>
         `).join('');

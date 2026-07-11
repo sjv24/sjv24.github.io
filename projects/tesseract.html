@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How my team and I built Tesseract, a multi-agent RAG chatbot that answers questions about Interstellar using the screenplay, a physics textbook, and 41,000 YouTube comments.">
+    <title>Tesseract Blog</title>
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo"><span>Saarthak Jadhav</span></a>
+
+        <ul class="nav-links">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <a href="https://github.com/sjv24" target="_blank">
+            <button class="visit-btn">Visit Github</button>
+        </a>
+    </header>
+
+    <section class="blog">
+        <div class="blog-container">
+            <h1>Tesseract</h1>
+
+            <p>
+                Tesseract is a multi-agent RAG chatbot I built with three teammates for my CSCI 370 class. You can ask it pretty much anything about the movie Interstellar, the plot, the physics behind it, or what actual fans think about specific scenes, and it figures out which source actually has the answer instead of just guessing.
+            </p>
+
+            <h2>Why This Project?</h2>
+            <p>
+                This was our final group project, and we wanted to build something bigger than a typical single-source chatbot. Interstellar felt like the perfect subject for it. It is a film people are still picking apart online years later, and the questions people ask about it fall into pretty different buckets. Some are about the plot, some are about the actual physics (which is unusually accurate for a sci-fi movie since Kip Thorne, a real physicist, consulted on it), and some are just people arguing about whether the ending makes sense. No single source covers all of that well. A general chatbot can talk about the movie fluently but will happily make up wrong physics. A sentiment dashboard can tell you the crowd liked it but can't answer a follow up question. We wanted one system that knew when to go where.
+            </p>
+
+            <h2>How It Works?</h2>
+            <p>
+                The project splits into two halves. The first half is a full NLP pipeline over real audience data. We scraped about 54,000 comments across 38 Interstellar explainer videos, cleaned and translated them, and brought that down to roughly 41,000 usable comments. From there we ran sentiment analysis (VADER and a RoBERTa model tuned on social media text), named entity recognition with spaCy, and aspect-based sentiment analysis with PyABSA, which tags sentiment per aspect of the film instead of one blended score, so it knows fans loved the visuals but were split on the ending, in the same comment.
+            </p>
+            <p>
+                The second half is the actual RAG system. It draws from three knowledge sources: the screenplay, the companion book "The Science of Interstellar" by Kip Thorne, and that whole annotated comment corpus. Script and textbook chunks get embedded locally with Ollama, while the much larger comment set uses OpenAI embeddings, since that one-time cost was worth it for a dataset that size. Everything gets indexed into Weaviate, with FAISS running alongside for the screenplay.
+            </p>
+            <p>
+                On top of that sits a LangGraph multi-agent setup. A Supervisor agent reads your question and decides whether it belongs to the Script agent, the Textbook agent, the Comments agent, or all three at once. Each agent uses a retrieval strategy suited to its own data, the textbook uses multi-hop query expansion since the passages are dense, while the comments agent leans on hybrid search since the text is short and informal. If a question needs more than one source, a Fusion agent waits for each specialist to come back and reconciles everything into a single grounded answer. Generation runs fully locally through Qwen3:8B on Ollama, so nothing ever leaves the machine. We wrapped the whole thing in a Streamlit app themed like Interstellar's mission control, warp transition and ambient audio included.
+            </p>
+
+            <h2>Takeaways</h2>
+            <p>
+                This is easily the most complex project I've built. LangGraph took a while to click, and I learned pretty quickly that the hard part of a system like this isn't the LLM call at the end, it's everything upstream of it. Reconciling a formal screenplay, a dense physics textbook, and thousands of messy, sarcastic YouTube comments into one retrieval system is genuinely difficult, since they don't behave the same way in embedding space at all. We also had to keep PyABSA in its own separate environment because it pins an older version of transformers that conflicts with everything else, which was a good lesson in dependency management on a team project. One of my favorite discoveries was that the NER pass over the comments is actually what led us to pick "The Science of Interstellar" as our textbook source in the first place, it kept showing up as one of the most talked about works in the comments themselves.
+            </p>
+
+            <h2>Future Scope</h2>
+            <p>
+                Right now the whole system is hardcoded to Interstellar, and the obvious next step is making the pipeline film-agnostic so it could be pointed at any movie's script, reference material, and comment section. On the performance side, the comment embedding step is the slowest one-time cost in the whole pipeline, so batching those requests would help a lot, and multi-source questions through the Fusion agent are noticeably slower than single-source ones, so speeding that path up is next on the list. Longer term, I'd like to surface actual source citations in the UI so you can see exactly which script line, textbook passage, or comment an answer came from.
+            </p>
+            <p>
+                The whole thing, notebooks, RAG pipeline, and all, is on GitHub if you want to dig through it yourself.
+            </p>
+
+            <div class="btn-group">
+                <a href="https://github.com/sjv24/youtube-intelligence-engine" target="_blank">
+                    <div class="btn">View Repository</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <ul>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
