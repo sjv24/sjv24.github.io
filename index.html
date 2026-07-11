@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
+    <meta name="description" content="Saarthak Jadhav - Computer Science student focused on data engineering, fintech, psychology, and healthcare projects.">
+    <title>Saarthak Jadhav</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,7 +39,7 @@
 
     <section id="about" class="about">
         <div class="about-container">
-            <img src="images/dp.jpg" alt="Saarthak Jadhav">
+            <img src="images/profile.jpg" alt="Saarthak Jadhav">
 
             <div class="info-box">
                 <h3>Hey, I'm</h3>
@@ -65,11 +67,10 @@
     <section id="projects" class="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid"></div>
-        <div class="btn-group" style="margin-top: 40px;">
+        <div class="btn-group view-all-group">
             <a href="all_projects.html" target="_blank">
-                <div class="btn" style="padding: 0.8rem 1rem; font-size: 1.1rem;">View All Projects</div>
+                <div class="btn btn-large">View All Projects</div>
             </a>
-            
         </div>
     </section>
 
@@ -93,32 +94,4 @@
     
     <script src="script.js"></script>
 </body>
-<script>
-document.addEventListener("DOMContentLoaded", async () => {
-  const container = document.querySelector("#projects .projects-grid");
-
-  try {
-    const projects = await (await fetch("projects.json")).json();
-    const diabetes = projects.find(p => p.title.toLowerCase().includes("diabetes"));
-    const latest = projects[projects.length - 1] !== diabetes ? projects[projects.length - 1] : null;
-
-    [diabetes, latest].filter(Boolean).forEach(p => {
-      container.innerHTML += `
-        <div class="project-card">
-          <img src="${p.image}" alt="${p.title}">
-          <h3>${p.title}</h3>
-          <p>${p.desc}</p>
-          <div class="btn-group">
-            <a href="${p.link}" target="_blank"><div class="btn">View More</div></a>
-          </div>
-        </div>
-      `;
-    });
-  } catch {
-    container.innerHTML = "<p>Failed to load projects.</p>";
-  }
-});
-</script>
-
-
 </html>

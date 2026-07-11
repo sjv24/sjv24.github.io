@@ -497,45 +497,34 @@ footer ul li a {
     margin-bottom: -4rem;
 }
 
-
 .blog h1 {
     margin-bottom: 10px;
     font-size: 36px;
 }
 
 .blog h2 {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .blog p {
     margin-bottom: 20px;
 }
 
-.blog2 .btn-group {
-    margin-top: 4rem;
-    margin-bottom: -4rem;
-}
-
-.blog2 h1 {
-    margin-bottom: 10px;
-    font-size: 36px;
-}
-
-.blog2 h2 {
-    margin-bottom: 20px; 
-}
-
-.blog2 p {
-    margin-bottom: 20px;
-}
-
 .projects-collage {
-    padding-top: 120px; /* Pushes the whole section down */
+    padding-top: 120px;
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
+.all-projects-title {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.view-all-group {
+    margin-top: 40px;
+}
+
+.btn-large {
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
 }

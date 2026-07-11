@@ -1,21 +1,21 @@
 [
   {
     "title": "Mood Tracker",
-    "image": "images/senti-anl.png",
+    "image": "images/mood-tracker.png",
     "desc": "Mood Tracker that uses sentiment analysis and time series methods to track, visualize, and analyze emotional trends over time, providing insights into mood patterns.",
-    "link": "projects/p2.html"
+    "link": "projects/mood-tracker.html"
   },
-    {
+  {
     "title": "Simvestify",
-    "image": "images/project3.png",
+    "image": "images/simvestify.png",
     "desc": "Simvestify is a stock simulation app that helps users track, buy, and sell stocks, while managing their portfolio and balance using real-time market data.",
-    "link": "projects/p3.html"
+    "link": "projects/simvestify.html"
   },
   {
     "title": "Diabetes Prediction Model",
-    "image": "images/DIABETES.png",
+    "image": "images/diabetes-prediction.png",
     "desc": "A machine learning model that predicts whether a user will have diabetes or not.",
-    "link": "projects/p1.html"
+    "link": "projects/diabetes-prediction.html"
   },
   {
     "title": "Internly",
@@ -25,9 +25,9 @@
   },
   {
     "title": "Weather ETL Pipeline",
-    "image": "images/weather.png",
+    "image": "images/weather-etl.png",
     "desc": "A full-stack ETL pipeline that collects, transforms, and stores real-time weather data, then visualizes insights through an interactive dashboard for end users.",
-    "link": "projects/weather_etl.html"
+    "link": "projects/weather-etl.html"
   }
 
 ]

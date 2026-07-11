@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Projects</title>
+    <meta name="description" content="All projects by Saarthak Jadhav - data engineering, fintech, psychology, and healthcare focused builds.">
+    <title>All Projects - Saarthak Jadhav</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +28,7 @@
     </header>
 
     <main class="projects-collage">
-    <h2 class="section-title" style="font-size: 35px; text-align: center; margin-bottom: 50px;">My Project Stories</h2>
+        <h2 class="section-title all-projects-title">My Project Stories</h2>
         <div class="projects-grid"></div>
     </main>
 
@@ -40,32 +42,4 @@
 
     <script src="script.js"></script>
 </body>
-
-<script>
-    document.addEventListener("DOMContentLoaded", async () => {
-  const container = document.querySelector(".projects-grid");
-
-  try {
-    const res = await fetch("projects.json");
-    var projects = await res.json();
-
-    projects = projects.reverse();
-
-    projects.forEach(p => {
-      const card = document.createElement("div");
-      card.classList.add("project-card");
-      card.innerHTML = `
-        <img src="${p.image}" alt="${p.title}">
-        <h3>${p.title}</h3>
-        <p>${p.desc}</p>
-        <a href="${p.link}" class="btn" target="_blank">View More</a>
-      `;
-      container.appendChild(card);
-    });
-  } catch (err) {
-    console.error("Error loading projects:", err);
-    container.innerHTML = "<p>Failed to load projects.</p>";
-  }
-});
-</script>
 </html>
