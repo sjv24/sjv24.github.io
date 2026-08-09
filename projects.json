@@ -1,38 +1,44 @@
 [
   {
     "title": "Mood Tracker",
-    "image": "images/mood-tracker.png",
+    "image": "images/mood-tracker.jpg",
     "desc": "Mood Tracker that uses sentiment analysis and time series methods to track, visualize, and analyze emotional trends over time, providing insights into mood patterns.",
-    "link": "projects/mood-tracker.html"
+    "link": "projects/mood-tracker.html",
+    "tags": ["Python", "TextBlob", "Sentiment Analysis", "Data Visualization"]
   },
   {
     "title": "Simvestify",
-    "image": "images/simvestify.png",
+    "image": "images/simvestify.jpg",
     "desc": "Simvestify is a stock simulation app that helps users track, buy, and sell stocks, while managing their portfolio and balance using real-time market data.",
-    "link": "projects/simvestify.html"
+    "link": "projects/simvestify.html",
+    "tags": ["Python", "Streamlit", "yFinance", "SQLite"]
   },
   {
     "title": "Diabetes Prediction Model",
-    "image": "images/diabetes-prediction.png",
+    "image": "images/diabetes-prediction.jpg",
     "desc": "A machine learning model that predicts whether a user will have diabetes or not.",
-    "link": "projects/diabetes-prediction.html"
+    "link": "projects/diabetes-prediction.html",
+    "tags": ["Python", "Linear Regression", "Machine Learning", "Streamlit"]
   },
   {
     "title": "Internly",
-    "image": "images/internly.png",
+    "image": "images/internly.jpg",
     "desc": "Internly is a full-stack internship management system where students can discover and apply for opportunities, and companies can post positions and track applications efficiently.",
-    "link": "projects/internly.html"
+    "link": "projects/internly.html",
+    "tags": ["Node.js", "MySQL", "JavaScript", "Full-Stack"]
   },
   {
     "title": "Weather ETL Pipeline",
-    "image": "images/weather-etl.png",
+    "image": "images/weather-etl.jpg",
     "desc": "A full-stack ETL pipeline that collects, transforms, and stores real-time weather data, then visualizes insights through an interactive dashboard for end users.",
-    "link": "projects/weather-etl.html"
+    "link": "projects/weather-etl.html",
+    "tags": ["Python", "Apache Airflow", "Docker", "PostgreSQL", "Metabase"]
   },
   {
     "title": "Tesseract",
-    "image": "images/tesseract.png",
+    "image": "images/tesseract.jpg",
     "desc": "A multi-agent RAG chatbot built around Interstellar that answers questions using the screenplay, a companion physics textbook, and over 41,000 analyzed YouTube comments, routing each question to the source that actually has the answer.",
-    "link": "projects/tesseract.html"
+    "link": "projects/tesseract.html",
+    "tags": ["Python", "LangGraph", "RAG", "Weaviate", "Streamlit"]
   }
 ]
