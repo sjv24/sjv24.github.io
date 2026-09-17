@@ -17,7 +17,7 @@
     --color-tag-text: #4A4438;
 
     /* Type */
-    --font-display: 'Fraunces', Georgia, serif;
+    --font-display: 'Playfair Display', Georgia, serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
     --text-hero: clamp(2.75rem, 6vw, 4.75rem);
@@ -554,20 +554,10 @@ section {
 #contact {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
     color: var(--color-ink);
-}
-
-#contact .section-title {
-    text-align: center;
-    padding-left: 0;
-    margin-bottom: var(--space-4);
-}
-
-#contact .section-title::before {
-    display: none;
 }
 
 .contact-intro {
