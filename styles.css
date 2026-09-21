@@ -355,8 +355,12 @@ section {
 /* ==========================================================================
    About Me (story)
    ========================================================================== */
+.story-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .story-content {
-    max-width: 700px;
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
