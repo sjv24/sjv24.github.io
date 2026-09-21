@@ -352,6 +352,22 @@ section {
     max-width: 52ch;
 }
 
+/* ==========================================================================
+   About Me (story)
+   ========================================================================== */
+.story-content {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.story-content p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+}
+
 /* Buttons */
 .btn-group {
     display: flex;
