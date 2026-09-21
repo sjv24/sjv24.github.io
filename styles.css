@@ -356,7 +356,7 @@ section {
    About Me (story)
    ========================================================================== */
 .story-content {
-    max-width: 700px;
+    max-width: 1100px;
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
