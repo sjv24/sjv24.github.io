@@ -23,9 +23,9 @@
   {
     "title": "Internly",
     "image": "images/internly.jpg",
-    "desc": "Internly is a full-stack internship management system where students can discover and apply for opportunities, and companies can post positions and track applications efficiently.",
+    "desc": "Internly is a full-stack internship portal where students can discover and apply for opportunities, and companies can post positions and track applications. Rebuilt solo with Express, PostgreSQL and a plain HTML, CSS and JavaScript front end.",
     "link": "projects/internly.html",
-    "tags": ["Node.js", "MySQL", "JavaScript", "Full-Stack"]
+    "tags": ["Node.js", "PostgreSQL", "JavaScript", "Full-Stack"]
   },
   {
     "title": "Weather ETL Pipeline",

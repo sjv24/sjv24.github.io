@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="How my team and I built Internly, a full-stack internship management platform for students and companies.">
+    <meta name="description" content="How I built Internly, a full-stack internship management platform for students and companies, and rebuilt it solo as Internly v2.">
     <title>Internly Blog</title>
     <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../styles.css">
@@ -35,15 +35,31 @@
                 <span class="eyebrow">Case Study</span>
                 <h1>Internly – Internship Management Platform</h1>
                 <p>
-                    Internly is a platform My team and I built to connect students with companies offering internships. It streamlines the process of posting, applying, and managing internships, making life easier for both students and employers.
+                    Internly connects students with companies offering internships. It streamlines the process of posting, applying, and managing internships, making life easier for both students and employers. I first built it as a university team project, and then rebuilt it on my own as Internly v2.
                 </p>
                 <div class="tag-list">
                     <span class="tag">Node.js</span>
-                    <span class="tag">MySQL</span>
+                    <span class="tag">PostgreSQL</span>
                     <span class="tag">JavaScript</span>
                     <span class="tag">Full-Stack</span>
                 </div>
             </div>
+
+            <h2>Internly v2: A Solo Rebuild</h2>
+            <p>
+                After building the original Internly with my team, I rebuilt it on my own. I kept the plain HTML, CSS, and JavaScript front end, but rebuilt the backend properly with Node.js, Express, and PostgreSQL: a structured codebase instead of one large file, real per-user login sessions, and automated tests.
+            </p>
+
+            <h2>Current Features</h2>
+            <ul class="feature-list">
+                <li>Search internships by keyword, location, and type, with pagination. The filtering runs in the database and updates as you type.</li>
+                <li>Student and company accounts with secure sign up and login (hashed passwords, per-user sessions in httpOnly cookies).</li>
+                <li>Students apply with a PDF resume and a cover note, track every application, and withdraw pending ones.</li>
+                <li>Companies post, edit, and delete their own listings, review applicants, open resumes, and accept or reject.</li>
+                <li>AI CV match: paste a CV and get the best-matching internships, each with a score, the skills that matched or are missing, and an explanation that streams in live.</li>
+                <li>Security basics: role and ownership checks, input validation, parameterised SQL, XSS and CSRF protection, rate limiting, and private resume storage.</li>
+                <li>49 automated tests, including security checks.</li>
+            </ul>
 
             <h2>Why This Project?</h2>
             <p>
@@ -52,31 +68,34 @@
 
             <h2>How It Works?</h2>
             <p>
-                Internly is built using HTML, CSS, and JavaScript for the frontend, with Node.js and MySQL handling the backend and database management. Students can create accounts, browse internship listings, and apply directly through the platform. Companies can post internships, track applications, and manage their profiles efficiently. Everything is stored securely in a database and updates dynamically based on user actions.
+                Internly v2 uses HTML, CSS, and JavaScript for the front end, with Node.js and Express handling the backend and PostgreSQL as the database (the original version used MySQL). Students can create accounts, browse internship listings, and apply directly through the platform. Companies can post internships, track applications, and manage their profiles. Everything is stored in the database and updates dynamically based on user actions.
             </p>
 
             <h2>Takeaways</h2>
             <p>
-                Building Internly taught me a lot about full-stack development and database management. I gained hands-on experience with Node.js, MySQL queries, and frontend-backend integration. This project also helped me understand how to design user-friendly interfaces, validate forms, and handle dynamic data efficiently. It was a rewarding experience to see the platform function smoothly and be ready for real users.
+                Building Internly taught me a lot about full-stack development and database management. I gained hands-on experience with Node.js, SQL, and frontend-backend integration. This project also helped me understand how to design user-friendly interfaces, validate forms, and handle dynamic data efficiently.
+            </p>
+            <p>
+                Rebuilding it on my own taught me what the first version skipped: how login sessions and cookies really work, the difference between authentication and authorisation, how database constraints and indexes help, how to defend against common attacks like XSS, CSRF, and SQL injection, and how to write automated tests.
             </p>
 
-            <h2>Future Scope</h2>
-            <p>
-                I plan to rebuild Internly with more relevant technologies, including Java, TypeScript and React, so I can learn and strengthen my fundamentals properly. Along with the rebuild, I want to add internship recommendations based on student profiles, notifications for new listings and deadlines, and analytics so companies can track applications and student engagement.
-            </p>
-
-            <p>
-                You can explore the original Internly on GitHub below, or follow the v2 rebuild as it develops.
-            </p>
+            <p>You can explore the original version and the rebuild on GitHub below.</p>
 
             <div class="btn-group">
                 <a href="https://github.com/sjv24/internly" target="_blank">
-                    <div class="btn">View Repository (v1)</div>
+                    <div class="btn">View Original (v1)</div>
                 </a>
                 <a href="https://github.com/sjv24/internly-v2" target="_blank">
-                    <div class="btn">View v2 (In Progress)</div>
+                    <div class="btn">View Rebuild (v2)</div>
                 </a>
             </div>
+
+            <br>
+
+            <h2>Future Scope (October 2026)</h2>
+            <p>
+                I plan to rebuild the front end in React to keep up with the tools teams use today, make the interface more efficient and easier to grow, and introduce newer technology along the way. The backend and database would stay the same.
+            </p>
         </div>
     </section>
 
