@@ -87,7 +87,146 @@ async function loadProjects() {
     }
 }
 
+// Case-study video.
+// Default: plays muted while on screen; clicking it restarts with sound.
+// Reduced motion or data saver: nothing downloads until the play button is pressed.
+function initProjectVideo() {
+    const video = document.querySelector('#project-video');
+    if (!video) return;
+    const frame = video.closest('.project-video');
+    const playBtn = frame.querySelector('.video-play');
+    const soundBtn = frame.querySelector('.video-sound');
+    const bar = frame.querySelector('.video-progress span');
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+    const autoplay = !reduced && !saveData;
+    let userPaused = false;
+
+    // If the video file is missing, hide the whole block instead of an empty box.
+    const block = video.closest('.project-video-block');
+    const hideBlock = () => { if (block) block.hidden = true; };
+    video.addEventListener('error', hideBlock);
+    fetch(video.currentSrc || video.src, { method: 'HEAD' })
+        .then((res) => { if (!res.ok) hideBlock(); })
+        .catch(() => {});
+
+    const showPlay = (show) => { playBtn.hidden = !show; };
+
+    const syncSound = () => {
+        const icon = soundBtn.querySelector('i');
+        const label = soundBtn.querySelector('span');
+        soundBtn.setAttribute('aria-pressed', String(!video.muted));
+        soundBtn.setAttribute('aria-label', video.muted ? 'Turn sound on' : 'Turn sound off');
+        icon.className = video.muted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
+        label.textContent = video.muted ? 'Sound off' : 'Sound on';
+    };
+
+    // Only fall back to the play button if the browser actually blocked playback.
+    const play = () => video.play()
+        .then(() => showPlay(false))
+        .catch((err) => { if (err.name === 'NotAllowedError') showPlay(true); });
+
+    const playFromStartWithSound = () => {
+        userPaused = false;
+        video.muted = false;
+        video.currentTime = 0;
+        play();
+    };
+
+    // Progress bar follows playback smoothly while the video runs.
+    let raf = 0;
+    const drawProgress = () => {
+        if (video.duration) bar.style.transform = `scaleX(${video.currentTime / video.duration})`;
+        raf = video.paused ? 0 : requestAnimationFrame(drawProgress);
+    };
+    video.addEventListener('play', () => { if (!raf) raf = requestAnimationFrame(drawProgress); });
+    video.addEventListener('timeupdate', drawProgress);
+    video.addEventListener('volumechange', syncSound);
+
+    // Click anywhere on the video.
+    frame.addEventListener('click', (e) => {
+        if (soundBtn.contains(e.target)) return;
+        if (video.paused) {
+            if (video.muted || video.currentTime === 0) playFromStartWithSound();
+            else { userPaused = false; play(); }
+        } else if (video.muted) {
+            playFromStartWithSound();
+        } else {
+            userPaused = true;
+            video.pause();
+            showPlay(true);
+        }
+    });
+
+    soundBtn.addEventListener('click', () => {
+        if (video.muted) playFromStartWithSound();
+        else video.muted = true;
+    });
+
+    if (!autoplay) {
+        showPlay(true);
+        return;
+    }
+
+    video.preload = 'auto';
+    const onScreen = () => {
+        const r = video.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom > 0;
+    };
+    if (onScreen()) play();
+    if ('IntersectionObserver' in window) {
+        // Play while any of it is on screen; pause once it is fully off screen.
+        new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) video.pause();
+            else if (!userPaused) play();
+        }).observe(video);
+    }
+}
+
+// Journey timeline: the rail fills as you scroll and each milestone lights up.
+function initTimeline() {
+    const timeline = document.querySelector('.timeline');
+    if (!timeline) return;
+    const items = [...timeline.querySelectorAll('.timeline__item')];
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+        items.forEach((el) => el.classList.add('is-active'));
+        timeline.style.setProperty('--progress', 1);
+        return;
+    }
+
+    let ticking = false;
+    const update = () => {
+        ticking = false;
+        const rect = timeline.getBoundingClientRect();
+        const focus = window.innerHeight * 0.6;
+        let progress = Math.min(1, Math.max(0, (focus - rect.top) / rect.height));
+        items.forEach((el) => {
+            const dot = el.querySelector('.timeline__dot').getBoundingClientRect();
+            if (dot.top < focus) el.classList.add('is-active');
+        });
+        // Light up the last milestone once the page bottoms out.
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+            items.forEach((el) => el.classList.add('is-active'));
+            progress = 1;
+        }
+        timeline.style.setProperty('--progress', progress.toFixed(4));
+    };
+    const onScroll = () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+        }
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadProjects();
     initScrollReveal();
+    initProjectVideo();
+    initTimeline();
 });

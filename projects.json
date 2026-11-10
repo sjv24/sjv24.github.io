@@ -21,18 +21,18 @@
     "tags": ["Python", "Linear Regression", "Machine Learning", "Streamlit"]
   },
   {
-    "title": "Internly",
-    "image": "images/internly.jpg",
-    "desc": "Internly is a full-stack internship portal where students can discover and apply for opportunities, and companies can post positions and track applications. Rebuilt solo with Express, PostgreSQL and a plain HTML, CSS and JavaScript front end.",
-    "link": "projects/internly.html",
-    "tags": ["Node.js", "PostgreSQL", "JavaScript", "Full-Stack"]
-  },
-  {
     "title": "Weather ETL Pipeline",
     "image": "images/weather-etl.jpg",
     "desc": "A full-stack ETL pipeline that collects, transforms, and stores real-time weather data, then visualizes insights through an interactive dashboard for end users.",
     "link": "projects/weather-etl.html",
     "tags": ["Python", "Apache Airflow", "Docker", "PostgreSQL", "Metabase"]
+  },
+  {
+    "title": "Internly",
+    "image": "images/internly.jpg",
+    "desc": "Internly is a full-stack internship portal where students discover and apply for opportunities, and companies post positions and track applications. Rebuilt solo, first with Express and PostgreSQL, then as a React and TypeScript app with an AI CV match.",
+    "link": "projects/internly.html",
+    "tags": ["React", "TypeScript", "Node.js", "PostgreSQL"]
   },
   {
     "title": "Tesseract",
